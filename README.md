@@ -132,6 +132,7 @@ int main(void)
 
 ## DUTY CYCLE AND FREQUENCY CALCULATION 
 FOR PULSE AT 500
+
 ![image](https://github.com/user-attachments/assets/79757c9e-2c3e-40c5-9022-804fc001f082)
 
 ```
@@ -152,6 +153,7 @@ DUTY CYCLE = TON/(TON+TOFF)
 ```
 
 FOR PULSE AT 750
+
 ![image](https://github.com/user-attachments/assets/76ddd129-cacd-426d-80c4-f18ede0b121b)
 
 ```
@@ -173,6 +175,7 @@ DUTY CYCLE = TON/(TON+TOFF)
 ```
 
 FOR PULSE AT 250
+
 ![image](https://github.com/user-attachments/assets/4e952ac7-3983-43b5-b1c1-8fbaf295d9af)
 
 ```
