@@ -96,39 +96,101 @@ Step14. click on debug and simulate using simulation as shown below
   
 
 ## STM 32 CUBE PROGRAM :
+```
+#include "main.h"
 
+TIM_HandleTypeDef htim2;
 
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_TIM2_Init(void);
 
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+  MX_TIM2_Init();
+ 
+  HAL_TIM_Base_Start(&htim2);
+  HAL_TIM_PWM_Init(&htim2);
+  HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_1);
 
+  while (1)
+  {
+   
+ }
+```
 
 ## Output screen shots of proteus  :
- 
+ ![image](https://github.com/user-attachments/assets/bde239fa-2605-4063-a13e-670701ceb3fa)
+
  
  ## CIRCUIT DIAGRAM (EXPORT THE GRAPHICS TO PDF AND ADD THE SCREEN SHOT HERE): 
- 
+ ![image](https://github.com/user-attachments/assets/2ff31ba5-4b2c-4c6c-bf73-a0e5c90a5b57)
+
 
 ## DUTY CYCLE AND FREQUENCY CALCULATION 
 FOR PULSE AT 500
+![image](https://github.com/user-attachments/assets/79757c9e-2c3e-40c5-9022-804fc001f082)
 
-TON = 
-TOFF=
-TOTAL TIME = 
+```
+TON = 1.5*20*10^-6
+    = 30*10^-6 s
+TOFF = 1.5*20*10^-6
+     = 30*10^-6 s
+TOTAL TIME = TON + TOFF 
+           = 60*10^-6 s
 FREQUENCY = 1/(TOTAL TIME)
+          = 1/(60*10^-6)
+          = 0.016*10^6 hertz
+DUTY CYCLE = TON/(TON+TOFF)
+           = 30*10^-6/(60*10^-6)
+           = 0.5
+    IN % = 0.5 * 100
+         = 50 %
+```
 
-FOR PULSE AT 700
+FOR PULSE AT 750
+![image](https://github.com/user-attachments/assets/76ddd129-cacd-426d-80c4-f18ede0b121b)
 
-TON = 
-TOFF=
-TOTAL TIME = 
+```
+TON = 2.25*20*10^-6
+    = 45*10^-6 s
+TOFF = 0.75*20*10^-6
+     = 15*10^-6 s
+TOTAL TIME = TON + TOFF
+           = 60*10^-6 s
 FREQUENCY = 1/(TOTAL TIME)
+          = 1/(60*10^-6)
+          = 0.016*10^6 hertz
+DUTY CYCLE = TON/(TON+TOFF)
+           = 45*10^-6/(60*10^-6)
+           = 0.75
+    IN % = 0.75*100
+         = 75 %
+       
+```
 
+FOR PULSE AT 250
+![image](https://github.com/user-attachments/assets/4e952ac7-3983-43b5-b1c1-8fbaf295d9af)
 
-FOR PULSE AT 900
-
-TON = 
-TOFF=
-TOTAL TIME = 
+```
+TON = 0.75*20*10^-6
+    = 15*10^-6 s
+TOFF = 2.25*20*10^-6
+     = 45*10^-6 s
+TOTAL TIME = TON + TOFF
+           = 60*10^-6 s
 FREQUENCY = 1/(TOTAL TIME)
+          = 1/(60*10^-6)
+          = 0.016*10^6 hertz
+DUTY CYCLE = TON/(TON+TOFF)
+           = 15*10^-6/(60*10^-6)
+           = 0.25
+    IN % = 0.25*100
+         = 25 %
+```
 
 
 ## Result :
